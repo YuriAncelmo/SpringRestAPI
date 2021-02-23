@@ -25,6 +25,9 @@ public class Produto {
     private double preco;
 
     private boolean novo;
+    //TODO : Ajustar para ver o relacionamento correto
+    @OneToOne(targetEntity=Categoria.class, mappedBy="id", fetch=FetchType.EAGER)
+    private Categoria categoria;
 
     //Deve ser uma data do passado
     @Past
