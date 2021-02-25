@@ -14,8 +14,9 @@ public class Categoria {
     @NotBlank
     @Size(max=50)
     private String nome;
-    //TODO : Ajustar para ver o relacionamento correto
-    @OneToOne(targetEntity=Produto.class, mappedBy="codigo", fetch=FetchType.EAGER)
+
+    //Uma categoria para vários produtos
+    @ManyToOne(targetEntity=Produto.class, fetch=FetchType.EAGER)
     private Produto produto;
     public int getId() {
         return id;
@@ -31,5 +32,13 @@ public class Categoria {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }

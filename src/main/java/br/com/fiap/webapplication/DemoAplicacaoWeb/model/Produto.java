@@ -25,8 +25,9 @@ public class Produto {
     private double preco;
 
     private boolean novo;
-    //TODO : Ajustar para ver o relacionamento correto
-    @OneToOne(targetEntity=Categoria.class, mappedBy="id", fetch=FetchType.EAGER)
+
+    //Muitos produtos para uma categoria
+    @ManyToOne(targetEntity=Categoria.class,  fetch=FetchType.EAGER)
     private Categoria categoria;
 
     //Deve ser uma data do passado
@@ -71,5 +72,13 @@ public class Produto {
 
     public void setDataFabricacao(LocalDate dataFabricacao) {
         this.dataFabricacao = dataFabricacao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
