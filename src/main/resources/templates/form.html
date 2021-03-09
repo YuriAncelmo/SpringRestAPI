@@ -7,8 +7,7 @@ layout:decorate="~{base}">
 </head>
 <body>
 <div layout:fragment="conteudo">
-    <form th:action="@{/produto/cadastrar}" th:object
-    "${produto}" method="post">
+    <form th:action="@{/produto/cadastrar}" th:object="${produto}" method="post">
     <div class="alert alert-danger" th:if="${#fiels.hasErrors('*')}">
         <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
     </div>
